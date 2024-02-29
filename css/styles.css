@@ -1,0 +1,173 @@
+/* Reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%; /*Convierte 1rem a 10px*/
+}
+
+.contenedor{
+    /* width: 50%; */
+    display: grid;
+    background-color: chartreuse;
+    /* grid-template-columns: 200px 300px 100px; */
+    /* grid-template-columns: 50% 45%; */
+    /* grid-template-columns: 2fr 1fr 1fr; */
+    grid-template-columns: 2fr repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 200px 400px;
+    grid-template-columns: repeat(2, auto);
+    gap: 5%;
+}
+
+.contenedor div{
+    background-color: crimson;
+}
+
+.contenedor-grid{
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* grid-template-columns: repeat(2, 200px); */
+    grid-template-rows: repeat(2, 200px);
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.hijo-1{
+    width: 250px;
+    border: 2px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hijo-2{
+    align-self: end;
+    justify-self: end;
+    /* Esto es lo mismo pero resumido */
+    place-self: end end;
+}
+
+/* ------------Ejemplo real----------------- */
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header img{
+    width: 100px;
+}
+
+header nav ul{
+    list-style: none;
+    font-size: 20px;
+    color: crimson;
+}
+
+/* Main index */
+.grid-galeria{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 300px);
+    margin: 1rem 3rem 3rem 3rem;
+    gap: 1rem;
+}
+
+.grid-galeria img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* Media queries */
+
+/* Media queries desde mobile hacia desktop */
+/* Media query tablet - (entre 768px y 1024px) */
+@media screen and (min-width: 768px){
+    header{
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 15px;
+    }
+
+    header nav ul{
+        display: flex;
+        column-gap: 15px;
+    }
+
+    .grid-galeria{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 300px);
+        /* grid-template-areas: 
+        "img1 img2"
+        "img3 img3"
+        "img4 img5"; */
+    }
+
+    /* .img-1{
+        grid-area: img1;
+    }
+
+    .img-2{
+        grid-area: img2;
+    }*/
+
+    .img-3{
+        /* grid-area: img3; */
+        grid-column: span 2;
+    }
+
+    /*.img-4{
+        grid-area: img4;
+    }
+
+    .img-5{
+        grid-area: img5;
+    } */
+}
+
+/* Media query desktop - (entre 1024px y 1200px) */
+@media screen and (min-width: 1024px){
+    .grid-galeria{
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 30vh);
+        /* grid-template-areas: 
+        "img1 img2 img3"
+        "img1 img4 img4"
+        "img5 img5 img5"; */
+    }
+
+    .img-1{
+        grid-row: span 2;
+    }
+
+    .img-3{
+        grid-column: span 1;
+    }
+
+    .img-4{
+        grid-column: span 2;
+    }
+
+    .img-5{
+        grid-column: span 3;
+    }
+}
+
+/* Media queries desde desktop hacia mobile */
+/* Media query tablet - (entre 768px y 1024px) */
+/* @media screen and (max-width: 1024px){
+
+} */
+
+/* Media query mobile - (entre 320px y 768px) */
+/* @media screen and (max-width: 768px){
+
+} */
